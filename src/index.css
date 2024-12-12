@@ -171,7 +171,22 @@ animation-delay: 0.8s;
 
 
  .modal-card{
-  background-color: #909090;
-  height: 300px;
+  background-color: #fffdfd;
+  height: 215px;
   width: 500px;
+  position: absolute;
+  /* top: 100px; */
+  border-radius: 20px;
+ top: 200px;
+ left: 25%;
+  padding: 22px;
+  box-sizing: border-box;
+  box-shadow: rgb(0 0 0 / 18%) 0px 5px 15px;
+ }
+
+ .modal-card button{
+  background-color: #ffe434;
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
  }
