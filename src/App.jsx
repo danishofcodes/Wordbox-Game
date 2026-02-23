@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Wordbox from "./components/Wordbox";
-import data from "../data/data";
+import data from "./data/data";
 import HowToPlay from "./components/HowToPlay";
 import Footer from "./components/Footer";
 

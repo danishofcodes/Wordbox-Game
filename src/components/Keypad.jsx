@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import data from "../../data/data"
+import data from "../data/data"
 
 export default function Keypad({ usedKeys }) {
   const [letters, setLetters] = useState([]);
