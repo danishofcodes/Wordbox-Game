@@ -1,0 +1,67 @@
+// data.js
+
+const data = {
+  letters: [
+    { key: "a" }, { key: "b" }, { key: "c" }, { key: "d" }, { key: "e" },
+    { key: "f" }, { key: "g" }, { key: "h" }, { key: "i" }, { key: "j" },
+    { key: "k" }, { key: "l" }, { key: "m" }, { key: "n" }, { key: "o" },
+    { key: "p" }, { key: "q" }, { key: "r" }, { key: "s" }, { key: "t" },
+    { key: "u" }, { key: "v" }, { key: "w" }, { key: "x" }, { key: "y" },
+    { key: "z" }
+  ],
+
+  words: [
+    { word: "apple", id: 1 },
+    { word: "chair", id: 2 },
+    { word: "bread", id: 3 },
+    { word: "dance", id: 4 },
+    { word: "flame", id: 5 },
+    { word: "ghost", id: 6 },
+    { word: "lemon", id: 7 },
+    { word: "round", id: 8 },
+    { word: "watch", id: 9 },
+    { word: "storm", id: 10 },
+    { word: "swing", id: 11 },
+    { word: "beach", id: 12 },
+    { word: "train", id: 13 },
+    { word: "clear", id: 14 },
+    { word: "water", id: 15 },
+    { word: "stone", id: 16 },
+    { word: "peace", id: 17 },
+    { word: "field", id: 18 },
+    { word: "spark", id: 19 },
+    { word: "blink", id: 20 },
+    { word: "vivid", id: 21 },
+    { word: "grape", id: 22 },
+    { word: "quick", id: 23 },
+    { word: "whale", id: 24 },
+    { word: "shark", id: 25 },
+    { word: "climb", id: 26 },
+    { word: "peach", id: 27 },
+    { word: "tiger", id: 28 },
+    { word: "laser", id: 29 },
+    { word: "stone", id: 30 },
+    { word: "chime", id: 31 },
+    { word: "night", id: 32 },
+    { word: "mango", id: 33 },
+    { word: "spike", id: 34 },
+    { word: "bloom", id: 35 },
+    { word: "creek", id: 36 },
+    { word: "youth", id: 37 },
+    { word: "smile", id: 38 },
+    { word: "fence", id: 39 },
+    { word: "laugh", id: 40 },
+    { word: "waste", id: 41 },
+    { word: "piano", id: 42 },
+    { word: "earth", id: 43 },
+    { word: "shine", id: 44 },
+    { word: "sight", id: 45 },
+    { word: "plane", id: 46 },
+    { word: "jumpy", id: 47 },
+    { word: "cloud", id: 48 },
+    { word: "trump", id: 49 },
+    { word: "waste", id: 50 }
+  ]
+};
+
+export default data;

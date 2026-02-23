@@ -1,60 +1,67 @@
-import React, { useEffect, useState } from 'react'
-import useWordbox from '../hooks/useWordbox'
-import Grid from './Grid';
-import Keypad from './Keypad';
-import Modal from './Modal';
+import { useEffect, useState } from "react";
+import useWordbox from "../hooks/useWordbox";
+import Grid from "./Grid";
+import Keypad from "./Keypad";
+import Modal from "./Modal";
 
 export default function Wordbox({ solution }) {
+  const [showModal, setShowModal] = useState(false);
 
-    const { currentGuess, handleKeyup, guesses, isCorrect, turn, usedKeys } = useWordbox(solution);
+  const {
+    currentGuess,
+    handleKeyup,
+    guesses,
+    isCorrect,
+    turn,
+    usedKeys,
+  } = useWordbox(solution);
 
-    const [showModal, setShowModal] = useState(false);
-    useEffect(() => {
-        window.addEventListener('keyup', handleKeyup);
-       
+  // Keyboard input
+  useEffect(() => {
+    window.addEventListener("keyup", handleKeyup);
+    return () => window.removeEventListener("keyup", handleKeyup);
+  }, [handleKeyup]);
 
-        if(isCorrect){
-            console.log("congrats you win!");
-            window.removeEventListener('keyup', handleKeyup);
-            setTimeout(()=>{
-                setShowModal(true)
-            },2000)
-        }
+  // Game over logic
+  useEffect(() => {
+    if (isCorrect || turn > 5) {
+      setTimeout(() => setShowModal(true), 2000);
+    }
+  }, [isCorrect, turn]);
 
+  return (
+    <div className="wordbox">
+    
+        {/* <button
+          className="help-btn"
+          onClick={() => setShowHelp(true)}
+        >
+          How to Play
+        </button> */}
+    
+      {/* Help Modal */}
+    
 
-        if(turn > 5 ){
-            console.log("unlucky out of guesses")
-            window.removeEventListener('keyup', handleKeyup);
-            setTimeout(()=>{
-                setShowModal(true)
-            },2000)
-        }
+      {/* Game Grid */}
+      <Grid
+        currentGuess={currentGuess}
+        guesses={guesses}
+        turn={turn}
+      />
 
-        
-        return () => window.removeEventListener('keyup', handleKeyup);
+      {/* Keypad */}
+      <Keypad usedKeys={usedKeys} />
 
+      {/* End Game Modal */}
+      {showModal && (
+        <Modal
+          isCorrect={isCorrect}
+          turn={turn}
+          solution={solution}
+        />
+      )}
 
-    }, [handleKeyup, isCorrect]);
-
-    // useEffect(() => {
-    //     console.log(guesses, turn, isCorrect)
-    // }, [guesses, turn, isCorrect]);
-
-    return (
-        <div>
-            {/* {currentGuess} */}
-            <p>solution-{solution}</p>
-         
-           <Grid currentGuess={currentGuess} guesses={guesses} turn={turn}/>
-
-           <Keypad usedKeys = {usedKeys}/>
-
-          {showModal && <Modal isCorrect={isCorrect} turn={turn} usedKeys={usedKeys} solution={solution}/>} 
-
-            <div>
-
-
-            </div>
-        </div>
-    )
+     
+    </div>
+  );
 }

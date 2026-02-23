@@ -6,27 +6,16 @@ export default function Modal({ isCorrect, turn, usedKeys, solution }) {
    }
    
     return (
+        <div className='modal-backdrop'>
+
         <div className='modal-card'>
 
 
-            {isCorrect && (
-                <>
-                    <div> <h1> You Win </h1> </div>
-                    <p>{solution}</p>
-                </>
-            )}
-
-            {!isCorrect && (
-                <>
-                    <div> <h1> Ah!you exhausted all turns! better luck next time</h1> </div>
-                    
-                    <p><b>Word : </b>"{solution}"</p>
-                    <br></br>
-                </>
-            )
-            }
-
-           <button onClick={reload}>Start New Game</button>
+            {isCorrect ? <div> <h1> Yay! You Win! 🎉</h1> </div> : <div> <h1> Woops !you exhausted all turns!😭</h1> </div> }
+            <p><b>The word was: </b>"{solution}"</p>
+            <br></br>
+            <button onClick={reload}>Start New Game</button>
+        </div>
         </div>
     )
 }
