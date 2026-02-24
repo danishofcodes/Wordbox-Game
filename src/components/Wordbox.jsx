@@ -143,7 +143,7 @@
 // }
 
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import useWordbox from "../hooks/useWordbox";
 import Grid from "./Grid";
 import Keypad from "./Keypad";
@@ -152,7 +152,7 @@ import Hints from "./Hints";
 
 export default function Wordbox({ solution }) {
   const [showModal, setShowModal] = useState(false);
-  const inputRef = useRef(null);
+  // const inputRef = useRef(null);
 
   const { currentGuess, handleKeyup, guesses, isCorrect, turn, usedKeys } =
     useWordbox(solution);
@@ -164,17 +164,17 @@ export default function Wordbox({ solution }) {
   }, [handleKeyup]);
 
   // Mobile soft keyboard
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    const lastChar = value[value.length - 1] || "";
-    if (lastChar) handleKeyup({ key: lastChar });
-    e.target.value = ""; 
-  };
+  // const handleInputChange = (e) => {
+  //   const value = e.target.value;
+  //   const lastChar = value[value.length - 1] || "";
+  //   if (lastChar) handleKeyup({ key: lastChar });
+  //   e.target.value = ""; 
+  // };
 
-  // Auto-focus input on load and on tap
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
+  
+  // useEffect(() => {
+  //   inputRef.current?.focus();
+  // }, []);
 
   // Game over logic
   useEffect(() => {
@@ -186,9 +186,10 @@ export default function Wordbox({ solution }) {
   return (
 
     
-    <div className="wordbox" onClick={() => inputRef.current?.focus()}>
+    <div className="wordbox" >
+      {/* onClick={() => inputRef.current?.focus()} */}
       {/* Hidden input for mobile typing */}
-      <input
+      {/* <input
         ref={inputRef}
         type="text"
         autoComplete="off"
@@ -196,7 +197,7 @@ export default function Wordbox({ solution }) {
         spellCheck="false"
         onChange={handleInputChange}
         style={{ position: "absolute", opacity: 0, pointerEvents: "none" }}
-      />
+      /> */}
 
       {/* Game grid */}
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
