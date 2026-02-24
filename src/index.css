@@ -1,5 +1,4 @@
 /*  Base */
-
 body {
   margin: 0;
   text-align: center;
@@ -16,7 +15,6 @@ h1 {
 }
 
 /*  Wordbox Header */
-
 .wordbox-header {
   display: flex;
   justify-content: space-between;
@@ -26,15 +24,14 @@ h1 {
 .btn {
   padding: 0.4rem 0.9rem;
   margin-right: 12px;
+  margin-bottom: 1em;
   border-radius: 6px;
   cursor: pointer;
-   margin-bottom: 1em;
   background-color: #1a1a1a;
-  color: #ffffff;
+  color: #fff;
   border: none;
   font-weight: bold;
   font-size: 0.9rem;
-
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
@@ -49,7 +46,6 @@ h1 {
 }
 
 /*  Grid */
-
 .row {
   display: flex;
   justify-content: center;
@@ -100,16 +96,13 @@ h1 {
 }
 
 /*  Animations */
-
 @keyframes flip {
   0% {
     transform: rotateX(0);
     background-color: #fff;
     border-color: #333;
   }
-  45% {
-    transform: rotateX(90deg);
-  }
+  45% { transform: rotateX(90deg); }
   55% {
     transform: rotateX(90deg);
     background-color: var(--background-color);
@@ -129,29 +122,47 @@ h1 {
 }
 
 /*  Keypad */
-
 .keypad {
   max-width: 500px;
   margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
 }
 
-.keypad .key {
-  width: 40px;
-  height: 50px;
-  margin: 5px;
-  display: inline-block;
-  border-radius: 6px;
-  line-height: 50px;
-  background-color: #e1e1e1;
+.key {
+  width: 50px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
   font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease-in-out;
+  background-color: #d3d6da; /* default grey */
+  color: black;
 }
 
-.keypad .key.green { background-color: #a9ff27; }
-.keypad .key.yellow { background-color: #ffee00; }
-.keypad .key.grey { background-color: #696969; }
+/* Hover and click effects */
+.key:hover { filter: brightness(1.2); }
+.key:active { transform: scale(0.95); }
+
+/* Special keys */
+.key.special {
+  width: 70px;
+  background-color: #111;
+  color: white;
+}
+
+/* Key colors based on game state */
+.key.green { background-color: #6aaa64; color: white; }
+.key.yellow { background-color: #c9b458; color: white; }
+.key.grey { background-color: #787c7e; color: white; }
 
 /*  Modal (shared) */
-
 .modal-backdrop,
 .how-to-play-overlay {
   position: fixed;
@@ -175,7 +186,6 @@ h1 {
   margin: 0 10px;
 }
 
-/* Modal button */
 .modal-card button {
   border: none;
   padding: 10px;
@@ -192,28 +202,14 @@ h1 {
 }
 
 /*  How To Play Legend */
+.how-to-play ul { padding-left: 1rem; }
+.htp-li { margin-bottom: 20px; line-height: 23px; text-align: left; }
 
-.key {
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: bold;
-}
-
-.key.green { background: #6aaa64; }
-.key.yellow { background: #c9b458; }
-.key.grey { background: #787c7e; }
-
-.how-to-play ul {
-  padding-left: 1rem;
-}
-
-/*   Game Header */
-
+/*  Game Header */
 .app-header {
   background: linear-gradient(135deg, #111, #1f1f1f);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  margin-bottom: 2em;;
+  margin-bottom: 2em;
 }
 
 .header-content {
@@ -227,18 +223,16 @@ h1 {
 
 /* Logo */
 .logo {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-  color: #ffffff;
+ margin: 0;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    color: #fff;
 }
 
-.logo span {
-  color: #ffe434;
-}
+.logo span { color: #ffe434; }
 
-/* Help Button (header version) */
+/* Help Button */
 .help-btn {
   background: #ffe434;
   color: #1e1e1e;
@@ -256,19 +250,9 @@ h1 {
   box-shadow: 0 6px 14px rgba(255, 228, 52, 0.5);
 }
 
-.help-btn:active {
-  transform: translateY(0);
-}
+.help-btn:active { transform: translateY(0); }
 
-
-.htp-li{
-     margin-bottom: 20px;
-    line-height: 23px;
-    text-align: left;
-}
-
-
-
+/* Footer */
 .app-footer {
   margin-top: 40px;
   padding: 16px 0;
@@ -277,18 +261,10 @@ h1 {
   text-align: center;
 }
 
-.app-footer span {
-  font-weight: bold;
-  color: #1e1e1e;
-}
+.app-footer span { font-weight: bold; color: #1e1e1e; }
 
-
+/* Responsive */
 @media (max-width: 480px) {
-  .keypad {
-    max-width: 100%;
-    padding: 0 6px;
-  }
-
   .keypad .key {
     width: 28px;
     height: 42px;
@@ -296,4 +272,17 @@ h1 {
     font-size: 0.75rem;
     margin: 3px;
   }
+}
+
+.actions-key{
+      justify-content: center;
+    display: flex;
+    gap: 10px;
+
+}
+
+.hint-btn{
+  margin-top: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
